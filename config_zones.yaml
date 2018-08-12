@@ -1,0 +1,54 @@
+#- zone xxxx:
+#  name (Optional): Friendly name of entry.
+#  latitude (Required): Latitude of the center point of the zone.
+#  longitude (Required): Longitude of the center point of the zone.
+#  radius (Optional): Optional radius in meters. Defaults to 100 meters.
+#  icon (Optional): Optional icon to show instead of name.
+#  passive (Optional): Optional boolean to only use the zone for automation and hide it from the UI and not use the zone for device tracker name. Defaults to false.
+
+- zone apg_amsterdam:
+  name: "APG basisweg"
+  latitude: 52.392242
+  longitude: 4.841295
+  altitude: 1
+  radius: 250
+  icon: mdi:worker
+
+- zone apg_heerlen:
+  name: "APG Heerlen"
+  latitude: 50.881704
+  longitude: 5.974528
+  elevation: 125
+  radius: 250
+  icon: mdi:worker
+
+- zone zaanprimair:
+  name: "Zaan Primair hoofdkantoor"
+  latitude: 52.437448
+  longitude: 4.842569
+  radius: 250
+  altitude: 0
+  icon: mdi:worker
+
+- zone basisschool_De_Watermolen:
+  name: "Basisschool de Watermolen"
+  latitude: 52.45894
+  longitude: 4.799437
+  altitude: 0
+  radius: 50
+  icon: mdi:graduation-cap
+
+- zone gerlof_annie:
+  name: "Gerlof & Annie"
+  latitude: 52.456732
+  longitude: 4.802394
+  radius: 10
+  elevation: 0
+  icon: mdi:account-multiple
+
+- zone marcel_sandra:
+  name: "Marcel & Sandra"
+  latitude: 52.434795
+  longitude: 4.806537
+  elevation: 1
+  icon: mdi:account-multiple

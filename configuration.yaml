@@ -1,0 +1,113 @@
+#Home
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name:             Home
+  # Location required to calculate the time the sun rises and sets
+  latitude:         !secret home_latitude
+  longitude:        !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation:        !secret home_elevation
+  # metric for Metric, imperial for Imperial
+  unit_system:      metric
+  temperature_unit: C
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone:        !secret home_timezone
+  customize:        !include config_customize.yaml
+  #customize_domain: !include config_customize_domain.yaml
+  customize_glob:   !include config_customize_glob.yaml
+
+  #load configuration packages
+  packages:
+    interfaces:     !include package_interfaces.yaml
+    #webinterface:   !include package_webinterface.yaml
+
+#ios companion
+ios:
+
+#set home-assistant logging
+#Possible log severities are: critical, fatal, error, warning, warn, info, debug, notset
+logger:
+  default: warn
+  # logs:
+  #   homeassistant.components: info
+  #   homeassistant.components.rfxtrx: debug
+  #   homeassistant.components.device_tracker: critical
+  #   homeassistant.components.camera: critical 
+
+# Set logging to mariadb
+recorder:
+  purge_keep_days: 5
+  purge_interval: 1
+  #db_url:           !secret db_url
+# Enables support for tracking state changes over time.
+history:
+# View all events in a logbook
+logbook:
+
+# Checks for available updates
+updater:
+# Allows you to issue voice commands from the frontend in enabled browsers
+#conversation:
+
+
+# Set the home assistant web interface options
+http:
+  # Uncomment this to add a password (recommended!)
+  # api_password: 'bla'
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+
+# Enables configuration UI
+config:
+# Show links to resources in log and frontend
+#introduction:
+
+# Track the sun
+sun:
+
+light:              !include config_lights.yaml
+
+group:              !include config_groups.yaml
+zone:               !include config_zones.yaml
+
+
+#include Notifications
+#notify:             !include config_notify.yaml
+#includes devices
+sensor:             !include config_sensors.yaml
+#include scripts
+automation:         !include config_automation.yaml
+#script:             !include config_script.yaml
+
+frontend:
+  themes:
+    darkcyan:
+      # Main colors that can be changed
+      primary-color: "#00bcd4"
+      disabled-text-color: "#545454"
+      divider-color: "rgba(255, 255, 255, 0.12)"
+      paper-card-background-color: "#4e4e4e"
+      paper-grey-200: "#191919"
+      paper-item-icon-color: "#d3d3d3"
+      paper-listbox-background-color: "#202020"
+      paper-listbox-color: "#FFFFFF"      
+      primary-background-color: "#303030"
+      primary-text-color: "#cfcfcf"      
+      secondary-background-color: "#2b2b2b"
+      secondary-text-color: "#04a7bc"
+      # Colors based on variables, see above
+      label-badge-background-color: "var(--secondary-background-color)"
+      label-badge-text-color: "var(--text-primary-color)"
+      paper-card-header-color: "#var(--paper-item-icon-color)"
+      paper-grey-50: "var(--primary-text-color)"
+      paper-item-icon-active-color: "var(--primary-color)"
+      paper-item-icon_-_color: "var(--primary-text-color)"
+      paper-slider-active-color: "var(--primary-color)"
+      paper-slider-knob-color: "var(--primary-color)"
+      paper-slider-knob-start-color: "var(--primary-color)"
+      paper-slider-pin-color: "var(--primary-color)"
+      paper-slider-secondary-color: "var(--light-primary-color)"     
+      paper-toggle-button-checked-ink-color: "var(--dark-primary-color)"
+      paper-toggle-button-checked-button-color: "var(--primary-color)"
+      paper-toggle-button-checked-bar-color: "var(--light-primary-color)"
+      paper-toggle-button-unchecked-bar-color: "var(--primary-text-color)"

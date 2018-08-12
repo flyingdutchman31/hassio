@@ -1,0 +1,68 @@
+#sensors
+'binary_sensor.*ms_sensor':
+  icon: mdi:run-fast
+  friendly_name: beweging
+'sensor.*_temperature*':
+  icon: mdi:thermometer
+  friendly_name: temperatuur
+'sensor.*_humidity*':
+  icon: mdi:water-percent
+  friendly_name: luchtvochtigheid
+'sensor.*_relative_humidity*':
+  icon: mdi:water-percent
+  friendly_name: 'relatieve luchtvochtigheid'
+'sensor.*barometer*':
+  icon: mdi:weather-windy
+  friendly_name: barometer
+'sensor.*pressure*':
+  icon: mdi:weather-windy-variant
+  friendly_name: luchtdruk
+'sensor.*_luminance*':
+  icon: mdi:theme-light-dark
+  friendly_name: lichtsterkte
+'sensor.*_ultraviolet*':
+  icon: mdi:theme-light-dark
+  friendly_name: uv sterkte
+'sensor.*_burglar*':
+  icon: mdi:security-home
+  friendly_name: 'inbraak'
+'sensor.*_access_control*':
+  friendly_name: 'toegang'
+'sensor.*_alarm_level*':
+  icon: mdi:bell
+  friendly_name: 'alarm niveau'
+'sensor.*_alarm_type*':
+  icon: mdi:bell
+  friendly_name: 'alarm type'
+'sensor.*_current*':
+  icon: mdi:power-plug
+  friendly_name: 'amperage'
+'sensor.*_energy*':
+  icon: mdi:power-plug
+  #friendly_name: 'totaal verbruik'
+'sensor.*_power*':
+  icon: mdi:power-plug
+  #friendly_name: 'huidig verbruik'
+'sensor.*_voltage*':
+  icon: mdi:power-plug
+  #friendly_name: 'voltage'
+
+#Switches
+'switch.*_fan*':
+  icon: mdi:fan
+  friendly_name: 'ventilator'
+
+#lighting
+'light.*_pv':
+  friendly_name: 'plafondverlichting'
+  icon: mdi:lightbulb-on-outline
+  #friendly_name: verlichting
+'switch.*light*':
+  icon: mdi:lightbulb-on-outline
+# '*_tl_level*':
+#   friendly_name: 'tafel verlichting'
+#   icon: mdi:lightbulb-on-outline
+
+'climate.*':
+  friendly_name: thermostaat
+  icon: mdi:thermometer-lines

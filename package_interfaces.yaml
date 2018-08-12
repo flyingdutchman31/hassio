@@ -1,0 +1,96 @@
+# # Discover some devices automatically
+discovery:
+  ignore:
+  #- philips_hue
+  #- sonos
+
+#Philips hue bridge
+# hue:
+#   bridges:
+#     - host:              192.168.1.12
+#       allow_hue_groups:  false
+#       allow_unreachable: true
+#       #scan_interval:     10
+
+
+climate:
+   - platform: honeywell
+     username: !secret honeywell_username
+     password: !secret honeywell_password
+     scan_interval: 600
+
+rfxtrx:
+  #device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_07WA5IZV-if00-port0
+  device: /dev/ttyUSB1
+  debug: false
+  dummy: false
+
+zwave:
+  usb_path: '/dev/ttyACM0'
+  #config_path: /home/homeassistant/.homeassistant/ozw_config
+  #config_path:  /srv/homeassistant/lib/python3.4/site-packages/python_openzwave/ozw_config
+  #debug: false
+  #refresh_value: true
+  #polling_intensity: 1```
+  polling_interval: 60000
+  autoheal: true
+
+#camera:
+#  - platform: synology
+#    url:        https://192.168.1.10:5001
+#    username:   !secret synologydsm_username
+#    password:   !secret synologydsm_password
+#    timeout:    5
+#    verify_ssl: False
+
+media_player:
+  #- platform: sonos
+    #host: 192.168.1.x
+       
+  - platform: kodi
+    host: 192.168.1.20
+    name: "kodi woonkamer"
+    username: !secret kodi_username
+    password: !secret kodi_password
+    #turn_off_action: System.Reboot
+  - platform: kodi
+    host: 192.168.1.21
+    name: "kodi slaapkamer ouders"
+    username: !secret kodi_username
+    password: !secret kodi_password
+    #turn_off_action: System.Reboot
+  - platform: kodi
+    host: 192.168.1.22
+    name: "kodi zolder"
+    username: !secret kodi_username
+    password: !secret kodi_password
+    #turn_off_action: System.Reboot
+
+#Homeassistant map for device tracker
+map:
+
+#Device tracker
+device_tracker:
+  - platform:           unifi
+    host:               !secret unifi_host      #host (Optional): The hostname or IP address of your controller. Defaults to localhost
+    port:               !secret unifi_port      #port (Optional): The port of your controller’s web interface. Defaults to 8443
+    username:           !secret unifi_username  #username (Required: The username of an user with administrative privileges, usually admin
+    password:           !secret unifi_password  #password (Required): The password for your given admin account
+    verify_ssl:         false                   #(Optional): Controls if the SSL certificate running on your Unifi webserver must be trusted by a known Certificate Authority on the server running Home Assistant. Defaults to ‘True’ but can also be a value that points to your custom cert “path/to/custom_cert.pem”
+    #Global device_tracker parameters. Can only be set for the first platform
+    track_new_devices:  true                    #If new discovered devices are tracked by default
+    interval_seconds:   60                      #Seconds between each scan for new devices
+    consider_home:      180                     #Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. consider_home helps prevent false alarms in presence detection when using IP scanners such as Nmap. consider_home accepts various time representations, (E.g. the following all represents 3 minutes: 180, 0:03, 0:03:00)
+    hide_if_away:       yes                     #f yes/on/true then the device will be hidden if it is not at home
+
+  #- platform:           ping
+    #count:
+  #  hosts:
+  #    unifi gateway:    192.168.1.1
+  #    edgeswitch:       192.168.1.2
+  #    synologydsm:      192.168.1.10
+  #    unifi controller: 192.168.1.11
+
+# Text to speech
+#tts:
+  #platform: google

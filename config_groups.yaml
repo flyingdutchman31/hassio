@@ -1,0 +1,594 @@
+ #default_view:
+ #   view: yes
+ #   entities:
+ #     #- group.apparaten
+#------------------------------------------------------------------------------
+bu:
+  name: 'Buiten'
+  view: yes
+  icon: mdi:tree
+  entities:
+  - group.bu_weer
+  - group.bu_tu
+  - group.bu_vr
+
+bu_weer:
+  name: 'Weer'
+  entities:
+  - sensor.br_stationname #The name of the selected meteo-station
+  - sensor.br_condition_code #A symbol and a unique code identifying the current weather condition ([a..z]).
+  - sensor.br_condition #A symbol and the current weather condition (clear, cloudy, fog, rainy, snowy, lightning).
+  - sensor.br_detailed_condition #A symbol and detailed current weather condition (clear, partlycloudy, cloudy, partlycloudy-fog, partlycloudy-light-rain, partlycloudy-rain, light-rain, rainy, snowy-rainy, partlycloudy-light-snow, partlycloudy-snow, light-snow, snowy, partlycloudy-lightning, lightning).
+  - sensor.br_full_condition #A symbol with the full current weather condition (in English).
+  - sensor.br_symbol #A symbol for the current weather with the full current condition (in Dutch).
+  - sensor.br_humidity #The relative humidity (%
+  - sensor.br_temperature #The current temperature (in C)
+  - sensor.br_ground_temperature #The current ground temperature (in C)
+  - sensor.br_wind_speed #The wind speed in m/s
+  - sensor.br_wind_force #The wind speed/force in Bft
+  - sensor.br_wind_direction #Where the wind is coming from in degrees, with true north at 0° and progressing clockwise
+  - sensor.br_wind_direction_azimuth #Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc
+  - sensor.br_pressure #The sea-level air pressure in hPa
+  - sensor.br_visibility #Visibility in meters (m)
+  - sensor.br_wind_gust #The windspeed of wind gusts (m/s)
+  - sensor.br_precipitation #The amount of precipitation/rain in mm/h
+  - sensor.br_precipitation_forecast_average #The average expected precipitation/rain in mm/h within the given timeframe
+  - sensor.br_precipitation_forecast_total #The total expected precipitation/rain in mm/h within the given timeframe
+  - sensor.br_irradiance #Sun intensity in Watt per square meter (W/m2).
+  - sensor.br_temperature_1d #The forecasted temperature (in C).
+  - sensor.br_temperature_2d #The forecasted temperature (in C).
+  - sensor.br_minimum_temperature_1d #The forecasted minimum temperature (in C).
+  - sensor.br_rainchance_1d #The forecasted chance for rain (%).
+  - sensor.br_rainchance_2d #The forecasted chance for rain (%).
+  - sensor.br_sunchance_1d #The forecasted chance for sun (%).
+  - sensor.br_rain_1d #The forecasted amount of rain in mm.
+  - sensor.br_snow_1d #The forecasted amount of snow in cm.
+  - sensor.br_wind_force_1d #The expected windforce in Bft.
+  - sensor.br_condition_code_1d #Symbol and condition code of the expected condition.
+  - sensor.br_condition_1d #Symbol and expected condition.
+  - sensor.br_detailed_condition_1d #Symbol and detailed expected condition.
+  - sensor.br_full_condition_1d #Symbol and full expected condition (in English).
+  - sensor.br_symbol_1d #Symbol and full expected condition (in Dutch).
+  - sensor.br_symbol_2d #Symbol and full expected condition (in Dutch).
+
+bu_tu:
+  name: 'Buiten: tuin'
+  control: hidden
+  entities:
+  - cover.bg_tu_zonnescherm_level
+  - light.bu_tu_l1
+  - light.bu_tu_r1
+  - light.bu_tu_l2
+  - light.bu_tu_r3
+
+bu_vr:
+  name: 'Buiten: voor'
+  control: hidden
+  entities:
+  - switch.bg_hal_sw1_switch_3
+  - sensor.motion_bu_voor
+  - sensor.motion_bu_voor_temp
+  - sensor.motion_bu_voor_lux
+  - sensor.motion_bu_voor_batt
+
+#------------------------------------------------------------------------------
+bg:
+  name: "Bg"
+  view: yes
+  icon: mdi:sofa
+  entities:
+  - group.bg_wk
+  - group.bg_keu
+  - group.bg_hal
+  - group.bg_toi
+  - group.bg_sch
+
+bg_sch:
+  name: 'Bg: schuur'
+  control: hidden
+  entities:
+  #RFXCom
+  - switch.switch
+  - switch.switch_2
+  - sensor.bg_sch_ws_barometer
+  - sensor.bg_sch_ws_humidity
+  - sensor.bg_sch_ws_temperature
+  - switch.bg_sch_pv_switch
+  - switch.bg_vl_pv_switch
+  - sensor.motion_bg_sch
+  - sensor.motion_bg_sch_temp
+  - sensor.motion_bg_sch_lux
+  - sensor.motion_bg_sch_batt
+
+  #- binary_sensor.bg_sch_ms_sensor
+  #- sensor.bg_sch_ms_access_control
+  #- sensor.bg_sch_ms_burglar
+  #- sensor.bg_sch_ms_luminance
+  #- sensor.bg_sch_ms_temperature
+  #- camera.ipcam01
+
+bg_keu:
+  name: 'Bg: keuken'
+  entities:
+  - light.keuken_verlichting
+  - light.bg_keu_tafel
+  - light.bg_keu_nis
+  #- light.bg_keu_pv
+  - media_player.keuken
+
+bg_toi:
+  name: 'Bg: toilet'
+  entities:
+  - switch.bg_toi_pv_switch
+  - binary_sensor.bg_toi_ms_sensor
+  - sensor.bg_toi_ms_alarm_level
+  - sensor.bg_toi_ms_alarm_type
+  - sensor.bg_toi_ms_luminance
+  - sensor.bg_toi_ms_temperature
+  - sensor.bg_toi_ms_relative_humidity
+  - sensor.bg_toi_ms_ultraviolet
+  - sensor.bg_toi_ms_angle_position
+  - sensor.bg_toi_ms_burglar
+  - sensor.bg_toi_ms_general
+  - sensor.bg_toi_ms_power
+  - sensor.bg_toi_ms_seismic_intensity
+  - sensor.bg_toi_ms_seismic_magnitude
+  - sensor.bg_toi_ms_sourcenodeid
+  - sensor.bg_toi_ms_air_flow
+  - sensor.bg_toi_ms_angle_position
+  - sensor.bg_toi_ms_dew_point
+  - sensor.bg_toi_ms_moisture
+  - sensor.bg_toi_ms_water_temperature
+
+bg_wk:
+  name: 'Bg: woonkamer'
+  control: hidden
+  entities:
+  - light.Woonkamer_verlichting
+  - light.bg_wk_lc
+  - light.bg_wk_pv
+  - climate.woonkamer
+  - media_player.woonkamer
+  - media_player.kodi_woonkamer
+
+bg_hal:
+  name: 'Bg: hal'
+  entities:
+  - switch.bg_hal_sw1_switch_2
+  - binary_sensor.bg_hal_ms_sensor
+  - sensor.bg_hal_ms_alarm_level
+  - sensor.bg_hal_ms_alarm_type
+  - sensor.bg_hal_ms_luminance
+  - sensor.bg_hal_ms_temperature
+  - sensor.bg_hal_ms_relative_humidity
+  - sensor.bg_hal_ms_ultraviolet
+  - sensor.bg_hal_ms_angle_position
+  - sensor.bg_hal_ms_burglar
+  - sensor.bg_hal_ms_general
+  - sensor.bg_hal_ms_power
+  - sensor.bg_hal_ms_seismic_intensity
+  - sensor.bg_hal_ms_seismic_magnitude
+  - sensor.bg_hal_ms_sourcenodeid
+
+# ------------------------------------------------------------------------------
+1e:
+  name: '1e: verdieping'
+  view: yes
+  icon: mdi:hotel
+  entities:
+  - group.1e_hal
+  - group.1e_bad
+  - group.1e_slk_ouders
+  - group.1e_slk_zoey
+  - group.1e_slk_finn
+
+1e_hal:
+  name: '1e: hal'
+  entities:
+  - light.1e_hal_pv
+  - sensor.motion_1e_hal_motion
+  - sensor.motion_1e_hal_lux
+  - sensor.motion_1e_hal_temp
+  - sensor.motion_1e_hal_daylight
+  - sensor.motion_1e_hal_dark
+  - sensor.motion_1e_hal_batt
+
+1e_bad:
+  name: '1e: badkamer'
+  entities:
+  - sensor.1e_bad_ws_barometer
+  - sensor.1e_bad_ws_humidity
+  - sensor.1e_bad_ws_temperature
+  - switch.1e_bad_fan_switch
+
+1e_slk_ouders:
+  name: '1e: slaapkamer ouders'
+  entities:
+  - light.1e_slkouders_pv
+  - sensor.1e_slk_ouders_ws_humidity
+  - sensor.1e_slk_ouders_ws_temperature
+  - media_player.kodi_slaapkamer_ouders
+  - climate.slp_ouders
+  - sensor.1e_slkouders_schakelaar
+
+1e_slk_finn:
+  name: '1e: slaapkamer Finn'
+  entities:
+  - sensor.1e_skfinn_switch_energy
+  - sensor.1e_skfinn_switch_power
+  - climate.slp_finn
+
+1e_slk_zoey:
+  name: '1e: slaapkamer Zoey'
+  entities:
+  - light.1e_slkzoey_pv
+  - media_player.zoey
+  - climate.slp_zoey
+  - sensor.1e_slkzoey_schakelaar
+
+# ------------------------------------------------------------------------------
+2e:
+  name: '2e verdieping'
+  view: yes
+  icon: mdi:theater
+  #control: hidden
+  entities:
+  - group.2e_hal
+  - group.2e_zol
+
+2e_hal:
+  name: '2e: hal'
+  #control: hidden
+  entities:
+  - switch.2e_hal_pv_switch
+
+2e_zol:
+  name: '2e: zolder'
+  #control: hidden
+  entities:
+  - switch.2e_zol_pv_switch
+  - sensor.2e_zol_ws_humidity
+  - sensor.2e_zol_ws_temperature
+  - light.2e_zol_media
+  - binary_sensor.2e_zol_ms_sensor
+  - sensor.2e_zol_ms_luminance
+  - sensor.2e_zol_ms_relative_humidity
+  - sensor.2e_zol_ms_temperature
+  - media_player.zolder
+  - media_player.kodi_zolder
+  - climate.zolder
+  - switch.2e_zol_sb_switch_1
+  - sensor.2e_zol_sb_energy_1
+  - sensor.2e_zol_sb_power_1
+  - sensor.2e_zol_sb_previous_reading_1
+  - switch.2e_zol_sb_switch_2
+  - sensor.2e_zol_sb_power_2
+  - sensor.2e_zol_sb_energy_2
+  - sensor.2e_zol_sb_previous_reading_2
+  - switch.2e_zol_sb_switch_3
+  - sensor.2e_zol_sb_energy_3
+  - sensor.2e_zol_sb_power_3
+  - sensor.2e_zol_sb_previous_reading_3
+  - switch.2e_zol_sb_switch_4
+  - sensor.2e_zol_sb_energy_4
+  - sensor.2e_zol_sb_power_4
+  - sensor.2e_zol_sb_previous_reading_4
+  - switch.2e_zol_sb_switch_5
+  - sensor.2e_zol_sb_energy_5
+  - sensor.2e_zol_sb_power_5
+  - sensor.2e_zol_sb_previous_reading_5
+  - switch.2e_zol_sb_switch_6
+  - sensor.2e_zol_sb_energy_6
+  - sensor.2e_zol_sb_power_6
+  - sensor.2e_zol_sb_previous_reading_6
+  - sensor.2e_zol_sb_previous_reading_7
+  - sensor.2e_zol_sb_previous_reading_8
+  - sensor.2e_zol_sb_previous_reading_9
+  - sensor.2e_zol_sb_previous_reading_10
+  - sensor.2e_zol_sb_previous_reading_11
+  - sensor.2e_zol_sb_previous_reading_12
+
+# ------------------------------------------------------------------------------
+apparaten:
+  name: apparaten
+  view: yes
+  icon: mdi:blur-radial
+  entities:
+  - group.phones
+  - group.tablets
+  - group.computers
+  - group.network
+  - group.hassio
+  - group.datacenter
+  - group.cameras
+  - group.pihole
+  - group.mediaplayers
+
+tablets:
+  name: tablets
+  entities:
+  - device_tracker.ipod
+  - device_tracker.tabletipad2
+  - device_tracker.tabletipadair
+  - device_tracker.tabletnexus7
+  - device_tracker.tablethpstream7
+
+computers:
+  name: 'Computers/Laptop'
+  entities:
+  - device_tracker.laptopchristian
+  - device_tracker.laptopesther
+  - device_tracker.2e_zol_computer
+  - device_tracker.resin
+  - device_tracker.kubmaster
+  - device_tracker.pcl16682
+
+network:
+  entities:
+  - device_tracker.net_cloudkey
+
+datacenter:
+  entities:
+  - device_tracker.net_syndsm
+  - device_tracker.net_lemp
+
+hassio:
+  entities:
+  - device_tracker.domotica_hassio
+  - sensor.since_last_boot
+  - sensor.last_boot
+  - sensor.processor_use
+  - sensor.ram_used
+  - sensor.memory_free
+  - sensor.memory_use_percent
+  - sensor.disk_free_home
+  - sensor.disk_use_home
+  - sensor.disk_use_percent_home
+  - sensor.ipv4_address_eth0
+  - sensor.network_in_eth0
+  - sensor.network_out_eth0
+
+domotica:
+  entities:
+  - device_tracker.domotica_hdhomerun
+  - device_tracker.domotica_honeywell
+  - device_tracker.domotica_philipshue
+
+cameras:
+  entities:
+  - device_tracker.bg_sch_ipcam
+
+pihole:
+  entities:
+  - sensor.pihole_cpu_load
+  - sensor.pihole_cpu_temp
+  - sensor.pihole_disk_free
+  - sensor.pihole_disk_used
+  - sensor.pihole_disk_used_2
+  - sensor.pihole_ram_free
+  - sensor.pihole_ram_used
+  - sensor.pihole_ram_used_2
+  - sensor.pihole_running
+  - sensor.pihole_sleeping
+  - sensor.pihole_swap_free
+  - sensor.pihole_swap_used
+  - sensor.pihole_swap_used_2
+  - sensor.pihole_total
+  - sensor.pihole_thread
+  - sensor.pihole_ads_blocked_today
+  - sensor.pihole_ads_percentage_blocked_today
+  - sensor.pihole_dns_queries_cached
+  - sensor.pihole_dns_queries_forwarded
+  - sensor.pihole_dns_queries_today
+  - sensor.pihole_dns_unique_clients
+  - sensor.pihole_dns_unique_domains
+  - sensor.pihole_domains_blocked
+
+mediaplayers:
+  entities:
+  - device_tracker.bg_wk_tv
+  - device_tracker.1e_slkouders_kodi
+  - device_tracker.2e_zol_kodi
+  - device_tracker.bg_wk_kodi
+  - device_tracker.bg_keu_sonos_p1
+  - device_tracker.bg_wk_sonos_p3
+  - device_tracker.2e_slkzoey_sonos_p1
+  - device_tracker.2e_zol_sonos_pb
+  - device_tracker.1e_slkouders_chromecastultra
+
+# ------------------------------------------------------------------------------
+energy:
+  name: energie
+  view: yes
+  icon: mdi:power-socket
+  entities:
+  - group.p1_energy
+  - group.bu_vr_energy
+  - group.bu_tu_energy
+  - group.bg_hal_energy
+  - group.bg_wk_energy
+  - group.2e_hal_energy
+  #- group.stekkerblok1
+  #- group.stekkerblok2
+
+p1_energy:
+  name: 'Stroom/Gas'
+  entities:
+  - sensor.power_consumption
+  - sensor.power_consumption_low
+  - sensor.power_consumption_normal
+  - sensor.power_production
+  - sensor.power_production_low
+  - sensor.power_production_normal
+  - sensor.power_tariff
+  - sensor.gas_consumption
+  - sensor.hourly_gas_consumption
+
+bu_tu_energy:
+  name: 'Bu: tuin'
+  entities:
+  #sw1 - zonnescherm
+  - sensor.bg_tu_zonnescherm_energy
+  - sensor.bg_tu_zonnescherm_power
+  - sensor.bg_tu_zonnescherm_previous_reading
+  - sensor.bg_tu_zonnescherm_previous_reading_2
+  #sw2
+  - sensor.bg_tu_sw2_energy
+  - sensor.bg_tu_sw2_previous_reading
+  - sensor.bg_tu_sw2_unknown
+  - sensor.bg_tu_sw2_power
+  - sensor.bg_tu_sw2_energy_2
+  - sensor.bg_tu_sw2_previous_reading_2
+  - sensor.bg_tu_sw2_unknown_2
+  - sensor.bg_tu_sw2_power_2
+  - sensor.bg_tu_sw2_energy_3
+  - sensor.bg_tu_sw2_previous_reading_3
+  - sensor.bg_tu_sw2_unknown_3
+  - sensor.bg_tu_sw2_power_3
+
+bu_vr_energy:
+  name: 'Buiten: voor'
+  entities:
+  - sensor.bg_hal_sw1_energy_3
+  - sensor.bg_hal_sw1_previous_reading_3
+  - sensor.bg_hal_sw1_unknown_3
+  - sensor.bg_hal_sw1_power_3
+
+bg_hal_energy:
+  name: 'Bg: hal'
+  entities:
+  - sensor.bg_hal_sw1_energy
+  - sensor.bg_hal_sw1_previous_reading
+  - sensor.bg_hal_sw1_unknown
+  - sensor.bg_hal_sw1_power
+  - sensor.bg_hal_sw1_energy2
+  - sensor.bg_hal_sw1_previous_reading_2
+  - sensor.bg_hal_sw1_unknown_2
+  - sensor.bg_hal_sw1_power_2
+
+bg_wk_energy:
+  name: 'Bg: woonkamer'
+  entities:
+  #sw1
+  - sensor.bg_wk_sw1_energy
+  - sensor.bg_wk_sw1_previous_reading
+  - sensor.bg_wk_sw1_unknown
+  - sensor.bg_wk_sw1_power
+  - sensor.bg_wk_sw1_energy_2
+  - sensor.bg_wk_sw1_previous_reading_2
+  - sensor.bg_wk_sw1_unknown_2
+  - sensor.bg_wk_sw1_power_2
+  - sensor.bg_wk_sw1_energy_3
+  - sensor.bg_wk_sw1_previous_reading_3
+  - sensor.bg_wk_sw1_unknown_3
+  - sensor.bg_wk_sw1_power_3
+  - sensor.bg_wk_sw1_previous_reading_4
+  #sw2
+  - sensor.bg_wk_sw2_energy
+  - sensor.bg_wk_sw2_previous_reading
+  - sensor.bg_wk_sw2_unknown
+  - sensor.bg_wk_sw2_power
+  - sensor.bg_wk_sw2_energy_2
+  - sensor.bg_wk_sw2_previous_reading_2
+  - sensor.bg_wk_sw2_unknown_2
+  - sensor.bg_wk_sw2_power_2
+  - sensor.bg_wk_sw2_energy_3
+  - sensor.bg_wk_sw2_previous_reading_3
+  - sensor.bg_wk_sw2_unknown_3
+  - sensor.bg_wk_sw2_power_3
+  - sensor.bg_wk_sw2_previous_reading_4
+  #sw2
+  - sensor.bg_wk_sw4_energy
+  - sensor.bg_wk_sw4_previous_reading
+  - sensor.bg_wk_sw4_unknown
+  - sensor.bg_wk_sw4_power
+  - sensor.bg_wk_sw4_energy_2
+  - sensor.bg_wk_sw4_previous_reading_2
+  - sensor.bg_wk_sw4_unknown_2
+  - sensor.bg_wk_sw4_power_2
+  - sensor.bg_wk_sw4_energy_3
+  - sensor.bg_wk_sw4_previous_reading_3
+  - sensor.bg_wk_sw4_unknown_3
+  - sensor.bg_wk_sw4_power_3
+  - sensor.bg_wk_sw4_previous_reading_4
+
+
+# 2e_hal_energy:
+#   name: 'Wasmachine/Droger'
+#   entities:
+#   - switch.2e_hal_droger_switch
+#   - sensor.2e_hal_droger_energy
+#   - sensor.2e_hal_droger_power
+#   - sensor.2e_hal_droger_previous_reading
+#   - switch.2e_hal_wasmachine_switch
+#   - sensor.2e_hal_wasmachine_energy
+#   - sensor.2e_hal_wasmachine_power
+#   - sensor.2e_hal_wasmachine_previous_reading
+
+# stekkerblok1:
+#   name: greenwave stekkerblok1
+#   entities:
+#   - sensor.bg_wk_sb_previous_reading_19
+#   - sensor.bg_wk_sb_previous_reading_20
+#   - sensor.bg_wk_sb_previous_reading_21
+#   - sensor.bg_wk_sb_previous_reading_22
+#   - sensor.bg_wk_sb_previous_reading_23
+#   - sensor.bg_wk_sb_previous_reading_24
+#   - switch.bg_wk_sb_switch
+#   - sensor.bg_wk_sb_energy
+#   - sensor.bg_wk_sb_power
+#   - sensor.bg_wk_sb_previous_reading
+#   - switch.bg_wk_sb_switch_2
+#   - sensor.bg_wk_sb_energy_2
+#   - sensor.bg_wk_sb_power_2
+#   - sensor.bg_wk_sb_previous_reading_2
+#   - switch.bg_wk_sb_switch_3
+#   - sensor.bg_wk_sb_power_3
+#   - sensor.bg_wk_sb_energy_3
+#   - sensor.bg_wk_sb_previous_reading_3
+#   - switch.bg_wk_sb_switch_4
+#   - sensor.bg_wk_sb_energy_4
+#   - sensor.bg_wk_sb_power_4
+#   - sensor.bg_wk_sb_previous_reading_4
+#   - switch.bg_wk_sb_switch_5
+#   - sensor.bg_wk_sb_energy_5
+#   - sensor.bg_wk_sb_power_5
+#   - sensor.bg_wk_sb_previous_reading_5
+#   - switch.bg_wk_sb_switch_6
+#   - sensor.bg_wk_sb_energy_6
+#   - sensor.bg_wk_sb_power_6
+#   - sensor.bg_wk_sb_previous_reading_6
+#
+# stekkerblok2:
+#   name: greenwave stekkerblok 2
+#   entities:
+#   - sensor.2e_zol_sb_previous_reading_13
+#   - sensor.2e_zol_sb_previous_reading_14
+#   - sensor.2e_zol_sb_previous_reading_15
+#   - sensor.2e_zol_sb_previous_reading_16
+#   - sensor.2e_zol_sb_previous_reading_17
+#   - sensor.2e_zol_sb_previous_reading_18
+#   - switch.2e_zol_sb_switch_7
+#   - sensor.2e_zol_sb_energy_7
+#   - sensor.2e_zol_sb_power_7
+#   - sensor.2e_zol_sb_previous_reading_7
+#   - switch.2e_zol_sb_switch_8
+#   - sensor.2e_zol_sb_power_8
+#   - sensor.2e_zol_sb_energy_8
+#   - sensor.2e_zol_sb_previous_reading_8
+#   - switch.2e_zol_sb_switch_9
+#   - sensor.2e_zol_sb_energy_9
+#   - sensor.2e_zol_sb_power_9
+#   - sensor.2e_zol_sb_previous_reading_9
+#   - switch.2e_zol_sb_switch_10
+#   - sensor.2e_zol_sb_energy_10
+#   - sensor.2e_zol_sb_power_10
+#   - sensor.2e_zol_sb_previous_reading_10
+#   - switch.2e_zol_sb_switch_11
+#   - sensor.2e_zol_sb_energy_11
+#   - sensor.2e_zol_sb_power_11
+#   - sensor.2e_zol_sb_previous_reading_11
+#   - switch.2e_zol_sb_switch_12
+#   - sensor.2e_zol_sb_energy_12
+#   - sensor.2e_zol_sb_power_12
+#   - sensor.2e_zol_sb_previous_reading_12

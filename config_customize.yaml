@@ -1,0 +1,195 @@
+#hide switches
+switch.bg_hal_sw1_switch:
+  friendly_name: bg_hal_sw1
+  hidden: true
+switch.bg_tu_sw2_switch:
+  friendly_name: bg_tu_sw2
+  hidden: true
+
+#zwave
+#sensor.*_sb:
+#polling_intensity: 2
+switch.bg_wk_sw1_switch:
+  friendly_name: bg_wk_sw1
+  hidden: true
+switch.bg_wk_sw1_switch_2:
+  friendly_name: bg_wk_sw1a
+switch.bg_wk_sw1_switch_3:
+  friendly_name: bg_wk_sw1b
+switch.bg_wk_sw2_switch:
+  friendly_name: bg_wk_sw2
+  hidden: true
+switch.bg_wk_sw2_switch_2:
+  friendly_name: bg_wk_sw2a
+switch.bg_wk_sw2_switch_3:
+  friendly_name: bg_wk_sw2b
+switch.bg_wk_sw4_switch:
+  friendly_name: bg_wk_sw4
+  hidden: true
+switch.bg_wk_sw4_switch_2:
+  friendly_name: bg_wk_sw4a
+switch.bg_wk_sw4_switch_3:
+  friendly_name: bg_wk_sw4b
+
+#bu_tu
+cover.bg_tu_zonnescherm_switch:
+  hidden: true
+cover.bg_tu_zonnescherm_level:
+  friendly_name: 'zonnescherm'
+sensor.bg_tu_zonnnescherm_energy:
+  friendly_name: 'zonnescherm - KWh'
+  icon: mdi:power-plug
+sensor.bg_tu_zonnescherm_power:
+  friendly_name: 'zonnescherm - Watt'
+  icon: mdi:power-plug
+sensor.bg_tu_zonnnescherm_previous_reading_3:
+  friendly_name: 'zonnescherm - KWh (vorige meting)'
+  icon: mdi:power-plug
+
+switch.bg_tu_sw2_switch_2:
+  friendly_name: bg_tu_sw2a
+switch.bg_tu_sw2_switch_3:
+  friendly_name: bg_tu_sw2b
+light.bu_tu_l1:
+  friendly_name: 'wandverlichting links'
+light.bu_tu_r1:
+  friendly_name: 'wandverlichting rechts'
+light.bu_tu_l2:
+  friendly_name: 'grasveld links 1'
+light.bu_tu_l3:
+  friendly_name: 'grasveld links 2'
+light.bu_tu_l4:
+  friendly_name: 'grasveld links 3'
+light.bu_tu_l5:
+  friendly_name: 'schutting links'
+light.bu_tu_r2:
+  friendly_name: 'grasveld rechts 1'
+light.bu_tu_r3:
+  friendly_name: 'grasveld rechts 2'
+light.bu_tu_r4:
+  friendly_name: 'schutting rechts'
+
+#bu_vr
+switch.bg_hal_sw1_switch_3:
+  friendly_name: "voordeur verlichting"
+  icon: mdi:lightbulb-on-outline
+sensor.bg_hal_sw1_previous_reading_3:
+  friendly_name: 'voordeur verlichting - huidig verbruik'
+  icon: mdi:power-plug
+sensor.bg_hal_sw1_unknown_3:
+  friendly_name: 'voordeur verlichting - totaal verbruik'
+  icon: mdi:power-plug
+
+#bg_wk
+light.bg_wk_lc:
+  friendly_name: 'tv verlichting'
+light.bg_wk_pv:
+  friendly_name: 'plafond verlichting'
+light.bg_keu_tafel:
+    friendly_name: 'eettafel verlichting'
+
+#bg_hal
+switch.bg_hal_sw1_switch_2:
+  friendly_name: 'plafond verlichting'
+sensor.bg_hal_sw1_previous_reading_2:
+  friendly_name: 'plafond verlichting - huidig verbruik'
+  icon: mdi:power-plug
+sensor.bg_hal_sw1_unknown_2:
+  friendly_name: 'plafond verlichting - totaal verbruik'
+  icon: mdi:power-plug
+sensor.bg_hal_ms_alarm_type:
+  hidden: true
+sensor.bg_hal_ms_alarm_level:
+  hidden: true
+
+#bg_toi
+sensor.bg_toi_ms_alarm_level:
+  hidden: true
+sensor.bg_toi_ms_alarm_type:
+  hidden: true
+
+#bg_keu:
+light.bg_keu_pv_level:
+  friendly_name: 'plafond verlichting'
+light.bg_keu_nis:
+  friendly_name: 'nis verlichting'
+
+#bg_sch
+switch.bg_sch_pv_switch:
+  friendly_name: 'plafond verlichting'
+  icon: mdi:lightbulb-on-outline
+switch.bg_sch_vl_switch:
+  friendly_name: 'vliering verlichting'
+  icon: mdi:lightbulb-on-outline
+
+#1e_hal
+light.1e_hal_pv:
+  friendly_name: 'plafond verlichting'
+sensor.motion_1e_hal_motion:
+  friendly_name: 'beweging'
+
+#1e_slk-ouders
+light.1e_slkouders_pv:
+  friendly_name: 'plafond verlichting'
+
+#1e_slk-Zoey
+light.1e_slkzoey_pv:
+  friendly_name: 'plafond verlichting'
+
+#2e_zol
+switch.2e_zol_pv_switch:
+  friendly_name: plafondverlichting
+light.2e_zol_media:
+  friendly_name: media verlichting
+
+#2e_hal
+switch.2e_hal_pv_switch:
+  friendly_name: 'plafondverlichting'
+switch.2e_hal_wasmachine_switch:
+  friendly_name: wasmachine
+  hidden: true
+sensor.2e_hal_wasmachine_energy:
+  friendly_name: wasmachine - totaal verbruik
+sensor.2e_hal_wasmachine_power:
+  friendly_name: wasmachine - huidig verbruik
+
+switch.2e_hal_droger_switch:
+  friendly_name: droger
+  hidden: true
+sensor.2e_hal_droger_energy:
+  friendly_name: droger - totaal verbruik
+sensor.2e_hal_droger_power:
+  friendly_name: droger - huidig verbruik
+
+#Sensors
+#weer
+sensor.br_ground_temperature:
+  friendly_name: 'grond temperatuur'
+#sensor.br_humidity:
+sensor.br_irradiance:
+  friendly_name: 'straling'
+sensor.br_precipitation:
+  friendly_name: 'neerslag'
+sensor.br_precipitation_forecast_average:
+  friendly_name: verwachte gemiddelde neerslag
+sensor.br_precipitation_forecast_total:
+  friendly_name: verwachte totaal neerslag
+#sensor.br_pressure:
+sensor.br_stationname:
+  friendly_name: 'weerstation'
+sensor.br_symbol:
+  friendly_name: 'status'
+#sensor.br_temperature:
+sensor.br_visibility:
+  icon: mdi:weather-fog
+  friendly_name: 'zicht'
+sensor.br_wind_direction:
+  friendly_name: 'windrichting'
+sensor.br_wind_direction_azimuth:
+  friendly_name: 'windrichting azimuth'
+sensor.br_wind_force:
+  friendly_name: 'windkracht'
+sensor.br_wind_gust:
+  friendly_name: 'windvlaag'
+sensor.br_wind_speed:
+  friendly_name: 'windsnelheid'

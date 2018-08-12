@@ -1,0 +1,296 @@
+- alias: 'Update Available Notifications'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    service: notify.notify
+    data:
+      message: 'Update for Home Assistant is available.'
+
+      
+#sensor.1e_slkouders_schakelaar
+- alias: 'bg_wk_sw1a-on'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.bg_wk_sw1_switch_2
+    to: 'on'
+  action:
+    # - service: hue.hue_activate_scene
+    #   data:
+    #     group_name: "Woonkamer"
+    #     scene_name: "bg_wk_sw1a"
+    # - service: hue.hue_activate_scene
+    #   data:
+    #     group_name: "Keuken"
+    #     scene_name: "bg_keu_sw1a"
+    - service: light.turn_on
+      entity_id: light.bg_wk_pv
+    - service: light.turn_on
+      entity_id: light.bg_wk_lc
+    - service: light.turn_on
+      entity_id: light.bg_keu_nis
+
+#bg_wk_sw1 --------------------------------------------------------
+- alias: 'bg_wk_sw1a-on'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.bg_wk_sw1_switch_2
+    to: 'on'
+  action:
+    # - service: hue.hue_activate_scene
+    #   data:
+    #     group_name: "Woonkamer"
+    #     scene_name: "bg_wk_sw1a"
+    # - service: hue.hue_activate_scene
+    #   data:
+    #     group_name: "Keuken"
+    #     scene_name: "bg_keu_sw1a"
+    - service: light.turn_on
+      entity_id: light.bg_wk_pv
+    - service: light.turn_on
+      entity_id: light.bg_wk_lc
+    - service: light.turn_on
+      entity_id: light.bg_keu_nis
+
+- alias: 'bg_wk_sw1a-off'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.bg_wk_sw1_switch_2
+    to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: light.bg_wk_pv
+    - service: light.turn_off
+      entity_id: light.bg_wk_lc
+    - service: light.turn_off
+      entity_id: light.bg_keu_nis
+
+#bg_wk_sw4 --------------------------------------------------------
+- alias: 'bg_wk_sw4a-on'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.bg_wk_sw4_switch_2
+    to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.bg_keu_tafel
+      # data:
+      #   brightness_pct: 100
+
+- alias: 'bg_wk_sw4a-off'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.bg_wk_sw4_switch_2
+    to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: light.bg_keu_tafel
+
+#bg_tu_sw2 --------------------------------------------------------
+- alias: 'bg_tu_sw2a-on'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.bg_tu_sw2_switch_2
+    to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.bu_tu_l2
+      data:
+        brightness_pct: 50
+    - service: light.turn_on
+      entity_id: light.bu_tu_l4
+      data:
+        brightness_pct: 50
+    - service: light.turn_on
+      entity_id: light.bu_tu_r3
+      data:
+        brightness_pct: 50
+
+- alias: 'bg_tu_sw2a-off'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.bg_tu_sw2_switch_2
+    to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: light.bu_tu_l2
+    - service: light.turn_off
+      entity_id: light.bu_tu_l4
+    - service: light.turn_off
+      entity_id: light.bu_tu_r3
+
+#1e_badkamer_ventilator --------------------------------------------------------
+- alias: '1e_bad_fan-on'
+  hide_entity: false
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.1e_bad_ws_humidity
+    value_template: "{{ state.attributes.Humidity }}"
+    above: 55
+  action:
+    service: switch.turn_on
+    entity_id: switch.1e_bad_fan_switch
+
+- alias: '1e_bad_fan-off'
+  hide_entity: false
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.1e_bad_ws_humidity
+    value_template: "{{ state.attributes.Humidity }}"
+    below: 54
+  action:
+    service: switch.turn_off
+    entity_id: switch.1e_bad_fan_switch
+
+# bu_voor_verlichting ------------------------------------------------------
+- alias: "Turn on bu_voor lights when there is movement"
+  hide_entity: false
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_bu_voor
+      to: 'on'
+  condition:
+    - condition: sun
+      after: sunset
+      # Optional offset value
+      # after_offset: "0:30:00"
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.bg_hal_sw1_switch_3
+
+- alias: "Turn off bu_voor lights when there is no movement"
+  hide_entity: false
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_bu_voor
+      to: 'off'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.bg_hal_sw1_switch_3
+
+# bg_sch_verlichting ------------------------------------------------------
+- alias: "Turn on bu_sch lights when there is movement"
+  hide_entity: false
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_bg_sch
+      to: 'on'
+  condition:
+    - condition: sun
+      after: sunset
+      # Optional offset value
+      # after_offset: "0:30:00"
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.switch_2
+
+- alias: "Turn off bu_sch lights when there is no movement"
+  hide_entity: false
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_bg_sch
+      to: 'off'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.switch_2
+
+# bg_hal_verlichting ------------------------------------------------------
+- alias: "Turn on bg_hal_sw1 when there is movement"
+  hide_entity: false
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bg_hal_ms_sensor
+      to: 'on'
+  condition:
+    - condition: sun
+      after: sunset
+      # Optional offset value
+      # after_offset: "0:30:00"
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.bg_hal_sw1_switch_2
+
+- alias: "Turn off bg_hal_sw1 when there is movement"
+  hide_entity: false
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bg_hal_ms_sensor
+      to: 'off'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.bg_hal_sw1_switch_2
+
+# # bg_toi_verlichting ------------------------------------------------------
+# - alias: "Turn on toi lights when there is movement"
+  # hide_entity: true
+  # trigger:
+    # - platform: state
+      # entity_id: binary_sensor.bg_toi_ms_sensor
+      # to: 'on'
+  # # condition:
+    # # - condition: to
+      # # entity_id: sun.sun
+      # # to: 'below_horizon'
+  # action:
+    # service: homeassistant.turn_on
+    # # entity_id: script.timed_lamp
+    # entity_id: switch.bg_toi_pv_switch
+
+#bg_toilet_plafonverlichting ---------------------------------------------------
+# - alias: 'bg_toilet_plafonverlichting-on'
+#   hide_entity: true
+#   trigger:
+#     platform: to
+#     entity_id: binary_sensor.bg_toilet_multisensor_sensor_35_0
+#     to: 'on'
+#   action:
+#     service: switch.turn_on
+#     entity_id: switch.bg_toilet_plafondverlichting_switch_7_0
+#
+# - alias: 'bg_toilet_plafonverlichting_off'
+#   hide_entity: true
+#   trigger:
+#     platform: to
+#     entity_id: binary_sensor.bg_toilet_multisensor_sensor_35_0
+#     to: 'off'
+#     for:
+#       minutes: 5
+#   action:
+#     service: switch.turn_off
+#     entity_id: switch.bg_toilet_plafondverlichting_switch_7_0
+
+#2e_zolder_plafonverlichting ---------------------------------------------------
+# - alias: '2e_zolder_plafonverlichting-on'
+#   hide_entity: true
+#   trigger:
+#     platform: to
+#     entity_id: binary_sensor.2e_zolder_multisensor_sensor_44_0
+#     to: 'on'
+#   condition:
+#     condition: numeric_to
+#     entity_id: sensor.2e_zolder_multisensor_luminance_44_3
+#     value_template: '{{ tos("sensor.2e_zolder_multisensor_luminance_44_3") }}'
+#     below: 20
+#   action:
+#     service: switch.turn_on
+#     entity_id: switch.2e_zolder_plafondverlichting_switch_16_0
+#
+# - alias: '2e_zolder_plafonverlichting_off'
+#   hide_entity: true
+#   trigger:
+#     platform: to
+#     entity_id: binary_sensor.2e_zolder_multisensor_sensor_44_0
+#     to: 'off'
+#     for:
+#       minutes: 5
+#   action:
+#     service: switch.turn_off
+#     entity_id: switch.2e_zolder_plafondverlichting_switch_16_0

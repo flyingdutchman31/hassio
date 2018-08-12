@@ -1,0 +1,12 @@
+- platform: group
+  name: "Keuken verlichting"
+  entities:
+    - light.bg_keu_tafel
+    - light.bg_keu_nis
+
+- platform: group
+  name: "Woonkamer verlichting"
+  entities:
+    - light.bg_wk_lc
+    - light.bg_wk_pv
+    - light.bg_keu_nis

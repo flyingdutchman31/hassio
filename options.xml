@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- To be effective, this file should be placed in the user data folder specified in the Options::Create method -->
+<Options xmlns='http://code.google.com/p/open-zwave/'>
+  <Option name="logging" value="true" />
+  <!-- <option name="loglevel" value="5" > -->
+  <Option name="Associate" value="true" />
+  <Option name="NotifyTransactions" value="false" />
+  <Option name="DriverMaxAttempts" value="5" />
+  <Option name="SaveConfiguration" value="true" />
+  <Option name="RetryTimeout" value="5000" />
+  <Option name="PerformReturnRoutes" value="true" />
+  <Option name="AssumeAwake" value="false" />
+  <Option name="SaveLogLevel" value="2" />
+  <Option name="QueueLogLevel" value="2" />
+  <Option name="DumpTriggerLevel" value="2" />
+
+  <!-- If you are using any Security Devices, you MUST set a network Key -->
+  <!-- <Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10" /> -->
+  <Option name="NetworkKey" value="0xA1, 0xB2, 0xC1, 0xD4, 0xF5, 0xA2, 0xA9, 0xB4, 0xC2, 0x0A, 0x01, 0x04, 0x05, 0xEE, 0xFF, 0x10" />
+  <!--
+  27 48 E8 96 FA E6 FF EB B4 42 31 43 4F F3 C8 62 27 48 E8 96 FA E6 FF EB B4 42 31 43 4F F3 C8 62 27 48 E8 96 FA E6 FF EB B4 42 31 43 4F F3 C8 62 27 48 E8 96 FA E6 FF EB B4 42 31 43 4F F3 C8 62 27 48 E8 96 FA E6 FF EB B4 42 31 43 4F F3 C8 62 27 48 E8 96 FA E6 FF EB B4 42 31 43 4F F3 C8 62 27 48 E8 96 FA E6 FF EB B4 42 31 43 4F F3 C8 62
+  -->
+
+  <!-- Some Devices have a big UserCode Table, that can mean startup times
+  when refreshing Session Variables is very long (Especialy on Security
+  Devices) This option will make the UserCode CC stop on the first
+  "available" usercode slot rather than retrieve every one -->
+  <Option name="RefreshAllUserCodes" value="false" />
+  <Option name="ThreadTerminateTimeout" value="5000" />
+</Options>
+
+<!--
+Log Levels:
+0        No Logging
+1        All Messages
+2        Fatal Messages Only
+3        Error Messages and Higher
+4        Warning Messages and Higher
+5        Alert Messages and Higher
+6        Info Messages and Higher
+7        Detailed Messages and Higher
+8        Debug Messages and Higher
+9        Protocol Information and Higher
+-->

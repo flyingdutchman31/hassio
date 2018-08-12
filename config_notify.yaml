@@ -1,0 +1,4 @@
+#Homeassistant IOS app
+- platform: ios
+  name: phone-christian
+  target: 'f46a5fa8-68d6-3b02-8869-32a1ebeca510'

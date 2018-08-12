@@ -1,0 +1,45 @@
+timed_lamp:
+  alias: "Turn on light and set timer"
+  sequence:
+    # Cancel ev. old timers
+    - service: script.turn_off
+      data:
+         entity_id: script.timer_off
+    - service: homeassistant.turn_on
+      data:
+        entity_id: switch.bg_to_light_switch_7_0
+    # Set new timer
+    - service: script.turn_on
+      data:
+        entity_id: script.timer_off
+
+timer_off:
+  alias: "Turn off light after 30 seconds"
+  sequence:
+    - delay:
+        minutes: 5
+    - service_template: >
+        {%- if not is_state("binary_sensor.bg_to_sensor_sensor_35_0", 'off') -%}
+          script.turn_on
+        {% else %}
+          homeassistant.turn_off
+        {% endif %}
+      data_template:
+        entity_id: >
+          {%- if not is_state("binary_sensor.bg_to_sensor_sensor_35_0", 'off') -%}
+            script.timer_off_restart
+          {% else %}
+            switch.bg_to_light_switch_7_0
+          {% endif %}
+
+timer_off_restart:
+  alias: "Turn off light after 1 minutes (restart)"
+  sequence:
+    # Cancel current script
+    - service: script.turn_off
+      data:
+        entity_id: script.timer_off
+    # Set new timer
+    - service: script.turn_on
+      data:
+        entity_id: script.timer_off

@@ -1,0 +1,234 @@
+# local RPi Monitoring
+- platform: systemmonitor
+  resources:
+    - type: processor_use
+    - type: memory_free
+    - type: memory_use_percent
+    - type: disk_use
+      arg: /home
+    - type: disk_use_percent
+      arg: /home
+    - type: disk_free
+      arg: /home
+    - type: ipv4_address
+      arg: eth0
+    - type: network_in
+      arg: eth0
+    - type: network_out
+      arg: eth0
+    - type: last_boot
+    - type: since_last_boot
+
+- platform: time_date
+  display_options:
+    - "date_time"
+
+- platform: dsmr
+  port: /dev/ttyUSB0 # (Optional): Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e. ser2net) connections, use TCP port number to connect to (i.e. 2001)
+  #host: #host string (Optional): Host to which Smartmeter is connected (default: ‘’ (connected via serial or USB, see port)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13)
+  dsmr_version: 4 #(Optional): Version of DSMR used by meter, choices: 2.2, 4 (default: 2.2)
+
+- platform: buienradar
+  #latitude:  !secret home_latitude  #If none specified uses homeassistant default
+  #longitude: !secret home_longitude #If none specified uses homeassistant default
+  timeframe: 120 #(Optional): Minutes to look ahead for precipitation forecast (5..120) [default: 60]
+  monitored_conditions:
+  - stationname #The name of the selected meteo-station
+  - conditioncode #A symbol and a unique code identifying the current weather condition ([a..z]).
+  - condition #A symbol and the current weather condition (clear, cloudy, fog, rainy, snowy, lightning).
+  - conditiondetailed #A symbol and detailed current weather condition (clear, partlycloudy, cloudy, partlycloudy-fog, partlycloudy-light-rain, partlycloudy-rain, light-rain, rainy, snowy-rainy, partlycloudy-light-snow, partlycloudy-snow, light-snow, snowy, partlycloudy-lightning, lightning).
+  - conditionexact #A symbol with the full current weather condition (in English).
+  - symbol #A symbol for the current weather with the full current condition (in Dutch).
+  - humidity #The relative humidity (%
+  - temperature #The current temperature (in C)
+  - groundtemperature #The current ground temperature (in C)
+  - windspeed #The wind speed in m/s
+  - windforce #The wind speed/force in Bft
+  - winddirection #Where the wind is coming from in degrees, with true north at 0° and progressing clockwise
+  - windazimuth #Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc
+  - pressure #The sea-level air pressure in hPa
+  - visibility #Visibility in meters (m)
+  - windgust #The windspeed of wind gusts (m/s)
+  - precipitation #The amount of precipitation/rain in mm/h
+  - precipitation_forecast_average #The average expected precipitation/rain in mm/h within the given timeframe
+  - precipitation_forecast_total #The total expected precipitation/rain in mm/h within the given timeframe
+  - irradiance #Sun intensity in Watt per square meter (W/m2).
+  - temperature_1d #The forecasted temperature (in C).
+  - temperature_2d #The forecasted temperature (in C).
+  - mintemp_1d #The forecasted minimum temperature (in C).
+  - rainchance_1d #The forecasted chance for rain (%).
+  - rainchance_2d #The forecasted chance for rain (%).
+  - sunchance_1d #The forecasted chance for sun (%).
+  - rain_1d #The forecasted amount of rain in mm.
+  - snow_1d #The forecasted amount of snow in cm.
+  - windforce_1d #The expected windforce in Bft.
+  - conditioncode_1d #Symbol and condition code of the expected condition.
+  - condition_1d #Symbol and expected condition.
+  - conditiondetailed_1d #Symbol and detailed expected condition.
+  - conditionexact_1d #Symbol and full expected condition (in English).
+  - symbol_1d #Symbol and full expected condition (in Dutch).
+  - symbol_2d #Symbol and full expected condition (in Dutch).
+
+- platform: pi_hole
+  host: !secret pi-hole_host #(Optional): The IP address of the Pi-Hole system. Defaults to localhost
+  #location #(Optional): The installation location of the Pi-Hole API. Defaults to admin
+  #ssl #(Optional): If true, use SSL/TLS to connect to the Pi-Hole system. Defaults to False
+  #monitored_conditions: #(Optional): Defines the stats to monitor as sensors
+  # - dns_queries_today #Total number of DNS queries handled by Pi-Hole today
+  # - ads_blocked_today #Total number of blocked ads today
+  # - ads_percentage_today #Percentage of blocked ads
+
+# - platform: glances
+#   host: 192.168.1.14    #(required) The IP address of your host, eg. 192.168.1.32.
+#   #port:                #(optional) The network port to connect to. Default is 61208.
+#   name: pihole #(optional) Name of the Glances sensor.
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# - platform: synologydsm
+#   host:     !secret synologydsm_host
+#   username: !secret synologydsm_username
+#   password: !secret synologydsm_password
+#   port:     5001
+#   monitored_conditions:
+#     - cpu_total_load
+#     - memory_real_usage
+#     - disk_smart_status
+#     - disk_status
+#     - disk_temp
+#     - network_down
+#     - network_up
+#     - volume_percentage_used
+
+- platform: rfxtrx
+  automatic_add: true
+  devices:
+    0a520721520e01442c0149:
+      name: bg_wk_ms
+      # data_type:
+      # - Humidity
+      # - Temperature
+    0a5207046b0e00fd3a0159:
+      name: 2e_zol_ws
+      # data_type:
+      # - Humidity
+      # - Temperature
+    0d540201280000f3380103580430:
+      name: bg_sch_ws
+      data_type:
+      - Barometer
+      # - Battery
+      - Humidity
+      # - Humidity status
+      - Temperature
+    0d5402021f0000f4320103f30259:
+      name: 1e_bad_ws
+      data_type:
+      - Barometer
+      # - Battery
+      - Humidity
+      # - Humidity status
+      - Temperature
+    0a5201026f0100b8210249:
+      name: 1e_slk_ouders_ws
+      data_type:
+      # - Battery
+      - Humidity
+      - Temperature
+
+- platform: hue
+
+#Template sensors hue
+- platform: template
+  sensors:
+    motion_1e_hal_temp:
+      friendly_name: 'temperatuur'
+      value_template: '{{states.sensor.motion_1e_hal_motion.attributes.temperature}}'
+      unit_of_measurement: °C
+    motion_1e_hal_lux:
+      friendly_name: 'lichtsterkte'
+      value_template: '{{states.sensor.motion_1e_hal_motion.attributes.lux}}'
+      unit_of_measurement: lux
+    motion_1e_hal_batt:
+      friendly_name: 'batterij'
+      value_template: '{{states.sensor.motion_1e_hal_motion.attributes.battery}}'
+      unit_of_measurement: '%'
+    motion_1e_hal_dark:
+      friendly_name: 'donker'
+      value_template: '{{states.sensor.motion_1e_hal_motion.attributes.dark}}'
+    motion_1e_hal_daylight:
+      friendly_name: 'daglicht'
+      value_template: '{{states.sensor.motion_1e_hal_motion.attributes.daylight}}'
+
+#Template sensors hue
+- platform: template
+  sensors:
+    motion_bg_sch_temp:
+      friendly_name: 'temperatuur'
+      value_template: '{{states.sensor.motion_bg_sch.attributes.temperature}}'
+      unit_of_measurement: °C
+    motion_bg_sch_lux:
+      friendly_name: 'lichtsterkte'
+      value_template: '{{states.sensor.motion_bg_sch.attributes.lux}}'
+      unit_of_measurement: lux
+    motion_bg_sch_batt:
+      friendly_name: 'batterij'
+      value_template: '{{states.sensor.motion_bg_sch.attributes.battery}}'
+      unit_of_measurement: '%'
+    motion_bg_sch_dark:
+      friendly_name: 'donker'
+      value_template: '{{states.sensor.motion_1e_hal_motion.attributes.dark}}'
+    motion_bg_sch_daylight:
+      friendly_name: 'daglicht'
+      value_template: '{{states.sensor.motion_1e_hal_motion.attributes.daylight}}'
+
+#Template sensors hue
+- platform: template
+  sensors:
+    motion_bu_voor_temp:
+      friendly_name: 'temperatuur'
+      value_template: '{{states.sensor.motion_bu_voor.attributes.temperature}}'
+      unit_of_measurement: °C
+    motion_bu_voor_lux:
+      friendly_name: 'lichtsterkte'
+      value_template: '{{states.sensor.motion_bu_voor.attributes.lux}}'
+      unit_of_measurement: lux
+    motion_bu_voor_batt:
+      friendly_name: 'batterij'
+      value_template: '{{states.sensor.motion_bu_voor.attributes.battery}}'
+      unit_of_measurement: '%'
+    motion_bu_voor_dark:
+      friendly_name: 'donker'
+      value_template: '{{states.sensor.motion_1e_hal_motion.attributes.dark}}'
+    motion_bu_voor_daylight:
+      friendly_name: 'daglicht'
+      value_template: '{{states.sensor.motion_1e_hal_motion.attributes.daylight}}'
+
+# #Templates
+# binary_sensor:
+#   - platform: template
+#     sensors:
+#       wasmachine:
+#         #value_template: "{%if states.switch.2e_hal_wasmachine_switch.state == 'on' %}ON{%elif states.switch.2e_hal_wasmachine_switch.state == 'off' %}OFF{% endif %}"
+#         value_template: "{{ states.sensor.2e_hal_wasmachine_power.state > 1 }}"
+#         friendly_name: 'Wasmachine draait'
+#         #icon: mdi:washing-machine
+#       droger:
+#         #value_template: "{%if states.switch.2e_hal_droger_switch.state == 'on' %}ON{%elif states.switch.2e_hal_droger_switch.state == 'off' %}OFF{% endif %}"
+#         value_template: "{{ states.sensor.2e_hal_droger_power.state => 1 }}"
+#         friendly_name: 'Droger draait'
+#         #icon: mdi:washing-machine
