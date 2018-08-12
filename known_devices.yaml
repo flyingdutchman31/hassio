@@ -1,0 +1,378 @@
+
+phonechristian:
+  hide_if_away: false
+  icon:
+  mac: 6C:8D:C1:4C:17:D9
+  name: phone-christian
+  picture:
+  track: true
+  vendor: Apple, Inc.
+
+net_cloudkey:
+  hide_if_away: false
+  icon:
+  mac: F0:9F:C2:1F:BC:52
+  name: net cloudkey
+  picture:
+  track: true
+  vendor: unknown
+
+net_syndsm:
+  hide_if_away: false
+  icon:
+  mac: 00:11:32:09:C2:17
+  name: net syndsm
+  picture:
+  track: true
+  vendor: unknown
+
+2e_zol_computer:
+  hide_if_away: false
+  icon:
+  mac: 90:2B:34:5E:26:7D
+  name: 2e zol computer
+  picture:
+  track: true
+  vendor: unknown
+
+bg_keu_sonos_p1:
+  hide_if_away: false
+  icon:
+  mac: B8:E9:37:51:58:FA
+  name: bg keu sonos-p1
+  picture:
+  track: true
+  vendor: unknown
+
+bg_wk_sonos_p3:
+  hide_if_away: false
+  icon:
+  mac: 00:0E:58:73:0D:9A
+  name: bg wk sonos-p3
+  picture:
+  track: true
+  vendor: unknown
+
+2e_slkzoey_sonos_p1:
+  hide_if_away: false
+  icon:
+  mac: B8:E9:37:50:E7:7A
+  name: 2e slkzoey sonos-p1
+  picture:
+  track: true
+  vendor: unknown
+
+domotica_honeywell:
+  hide_if_away: false
+  icon:
+  mac: 00:D0:2D:5C:E9:58
+  name: domotica Honeywell
+  picture:
+  track: true
+  vendor: unknown
+
+2e_zol_kodi:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:64:CC:D7
+  name: 2e zol kodi
+  picture:
+  track: true
+  vendor: unknown
+
+2e_zol_sonos_pb:
+  hide_if_away: false
+  icon:
+  mac: 00:0E:58:B4:FE:82
+  name: 2e zol sonos-pb
+  picture:
+  track: true
+  vendor: unknown
+
+domotica_hassio:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:E5:82:ED
+  name: domotica hassio
+  picture:
+  track: true
+  vendor: unknown
+
+bg_wk_kodi:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:3A:FA:8E
+  name: bg wk kodi
+  picture:
+  track: true
+  vendor: unknown
+
+phoneesther:
+  hide_if_away: false
+  icon:
+  mac: 48:43:7C:61:2F:0E
+  name: phone-esther
+  picture:
+  track: true
+  vendor: unknown
+
+1e_slkouders_kodi:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:EF:AB:EB
+  name: 1e slk-ouders kodi
+  picture:
+  track: true
+  vendor: unknown
+
+bg_sch_ipcam:
+  hide_if_away: false
+  icon:
+  mac: 8C:AE:90:00:35:5A
+  name: bg sch ipcam
+  picture:
+  track: true
+  vendor: unknown
+
+kubmaster:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:A2:BC:E1
+  name: kub-master
+  picture:
+  track: true
+  vendor: unknown
+
+00d9d16380ca:
+  hide_if_away: false
+  icon:
+  mac: 00:D9:D1:63:80:CA
+  name: 00d9d16380ca
+  picture:
+  track: true
+  vendor: unknown
+
+1e_slkouders_chromecastultra:
+  hide_if_away: false
+  icon:
+  mac: F4:F5:D8:7F:C7:10
+  name: 1e slkouders chromecast-ultra
+  picture:
+  track: true
+  vendor: unknown
+
+71f0394:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:EA:E9:9A
+  name: 71f0394
+  picture:
+  track: true
+  vendor: unknown
+
+domotica_hdhomerun:
+  hide_if_away: false
+  icon:
+  mac: 00:18:DD:41:03:19
+  name: domotica hdhomerun
+  picture:
+  track: true
+  vendor: unknown
+
+domotica_philipshue:
+  hide_if_away: false
+  icon:
+  mac: 00:17:88:25:7B:79
+  name: domotica philipshue
+  picture:
+  track: true
+  vendor: Philips Lighting BV
+
+40b3bbf:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:57:CE:9C
+  name: 40b3bbf
+  picture:
+  track: true
+  vendor: unknown
+
+net_lemp:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:3C:24:21
+  name: net lemp
+  picture:
+  track: true
+  vendor: unknown
+
+tabletipad2:
+  hide_if_away: false
+  icon:
+  mac: B8:C7:5D:E0:C5:50
+  name: tablet-ipad2
+  picture:
+  track: true
+  vendor: Apple, Inc.
+
+tabletipadair:
+  hide_if_away: false
+  icon:
+  mac: 20:EE:28:00:03:A2
+  name: tablet-iPadAir
+  picture:
+  track: true
+  vendor: unknown
+
+bg_wk_tv:
+  hide_if_away: false
+  icon:
+  mac: FC:8F:90:E7:19:99
+  name: bg wk tv
+  picture:
+  track: true
+  vendor: Samsung Electronics Co.,Ltd
+
+pcl16682:
+  hide_if_away: false
+  icon:
+  mac: F4:8C:50:FA:CB:B6
+  name: PCL16682
+  picture:
+  track: true
+  vendor: Intel Corporate
+
+00248d3a1381:
+  hide_if_away: false
+  icon:
+  mac: 00:24:8D:3A:13:81
+  name: 00248d3a1381
+  picture:
+  track: true
+  vendor: Sony Interactive Entertainment Inc.
+
+dcef09c6078c:
+  hide_if_away: false
+  icon:
+  mac: DC:EF:09:C6:07:8C
+  name: dcef09c6078c
+  picture:
+  track: true
+  vendor: NETGEAR
+
+phoneannie:
+  hide_if_away: false
+  icon:
+  mac: 48:50:73:AE:00:DC
+  name: phone-annie
+  picture:
+  track: true
+  vendor: Microsoft Corporation
+
+0005cd161d4b:
+  hide_if_away: false
+  icon:
+  mac: 00:05:CD:16:1D:4B
+  name: 0005cd161d4b
+  picture:
+  track: true
+  vendor: D&M Holdings Inc.
+
+laptopchristian:
+  hide_if_away: false
+  icon:
+  mac: 50:1A:C5:E8:2B:5F
+  name: laptop-christian
+  picture:
+  track: true
+  vendor: Microsoft
+
+esther:
+  hide_if_away: false
+  icon:
+  mac: 78:0C:B8:D5:7D:B1
+  name: Esther
+  picture:
+  track: true
+  vendor: unknown
+
+gainspanb56989:
+  hide_if_away: false
+  icon:
+  mac: 20:F8:5E:B5:69:89
+  name: GainSpanb56989
+  picture:
+  track: true
+  vendor: Delta Electronics
+
+d0daa575da03:
+  hide_if_away: false
+  icon:
+  mac: D0:DA:A5:75:DA:03
+  name: d0daa575da03
+  picture:
+  track: true
+
+gon:
+  hide_if_away: false
+  icon:
+  mac: 84:EF:18:58:EE:54
+  name: Gon
+  picture:
+  track: true
+
+iphonelex:
+  hide_if_away: false
+  icon:
+  mac: F0:79:60:71:08:56
+  name: iPhone-Lex
+  picture:
+  track: true
+
+iphonevijebuhrs:
+  hide_if_away: false
+  icon:
+  mac: 4C:57:CA:DB:60:D6
+  name: iPhonevijeBuhrs
+  picture:
+  track: true
+
+android30fff4df2ba53e5f:
+  hide_if_away: false
+  icon:
+  mac: BA:36:8A:8E:50:1A
+  name: android-30fff4df2ba53e5f
+  picture:
+  track: true
+
+9632fcd839b9:
+  hide_if_away: false
+  icon:
+  mac: 96:32:FC:D8:39:B9
+  name: 9632fcd839b9
+  picture:
+  track: true
+
+744159df5750:
+  hide_if_away: false
+  icon:
+  mac: 74:41:59:DF:57:50
+  name: 744159df5750
+  picture:
+  track: true
+
+0090a29fd761:
+  hide_if_away: false
+  icon:
+  mac: 00:90:A2:9F:D7:61
+  name: 0090a29fd761
+  picture:
+  track: true
+
+7025594911ff:
+  hide_if_away: false
+  icon:
+  mac: 70:25:59:49:11:FF
+  name: 7025594911ff
+  picture:
+  track: true
