@@ -151,6 +151,7 @@
       - Temperature
 
 - platform: hue
+  ip_address: !secret hue_ipaddress
   token: !secret hue_password
     
 #Template sensors hue
