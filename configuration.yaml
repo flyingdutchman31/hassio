@@ -57,7 +57,10 @@ http:
   # api_password: ''
   # Uncomment this if you are using SSL or running in Docker etc
   # base_url: example.duckdns.org:8123
-  base_url: hassio:8123
+  api_password: !secret api_password
+  base_url: https://hass.christiandouma.nl:8123
+  server_host: 0.0.0.0
+  server_port: 8123
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
