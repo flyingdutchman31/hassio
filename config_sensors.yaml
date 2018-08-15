@@ -151,8 +151,7 @@
       - Temperature
 
 - platform: hue
-  ip_address: 192.168.1.12
-  token: CHJEgVO09h3gYF0oRkolDD0naV1DEhoOXvGNMO6u
+  token: !secret hue_password
     
 #Template sensors hue
 - platform: template
