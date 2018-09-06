@@ -77,7 +77,6 @@ light:              !include config_lights.yaml
 group:              !include config_groups.yaml
 zone:               !include config_zones.yaml
 
-
 #include Notifications
 #notify:             !include config_notify.yaml
 #includes devices
@@ -118,3 +117,16 @@ frontend:
       paper-toggle-button-checked-button-color: "var(--primary-color)"
       paper-toggle-button-checked-bar-color: "var(--light-primary-color)"
       paper-toggle-button-unchecked-bar-color: "var(--primary-text-color)"
+
+
+panel_iframe:
+  mdiindex:
+    title:          'MDI Icon Index'
+    icon:           mdi:vector-square
+    url:            'https://cdn.rawgit.com/james-fry/home-assistant-mdi/efd95d7a/home-assistant-mdi.html'
+
+panel_iframe:
+  nodered:
+    title: Node-RED
+    icon: mdi:sitemap
+    url: http://hassio:1880
